@@ -156,6 +156,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\ConsultationModelEvents::class,
+        App\Providers\PatientModelEventProvider::class,
         App\Providers\StaffProvider::class,
 
     ],
