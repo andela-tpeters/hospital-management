@@ -26,7 +26,7 @@ Route::get('/', function () {
 |
 */
 
-Route::group(['middleware' => ['web','checkRole','auth']], function () {
+Route::group(['middleware' => ['web','auth']], function () {
 	Route::controller('/patients','Patients',
 		[
 			'getIndex'=>'patient.all',
