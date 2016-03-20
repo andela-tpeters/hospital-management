@@ -8,18 +8,20 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Classes\Staff;
 use App\Classes\PatientObject as Patient;
+use App\Http\Requests\CreatePatientRequest as CPR;
+use Carbon\Carbon;
 
 class PatientRUDController extends Controller
 {
-    Public $patient;
     Public $staff;
 
     Public function __construct(Staff $staff, Request $r) {
-      \Config::set('patient_id', $r->segment(2));
+      \Session::put('patient_id',$r->segment(3));
       $this->staff = $staff;
     }
 
-    Public function showPatient(Patient $patient) {
-      return dd($patient->getProfile());
+    Public function getShowPatient(Patient $patient) {
+      return view('patients_show',['patient'=>$patient->getProfile(),'patientConsults'=>$patient->consultations()]);
     }
+
 }

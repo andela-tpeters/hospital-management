@@ -9,21 +9,13 @@
    */
   trait PersonelTraits
   {
-      public function createPatient(array $patient)
-      {
-        // try to create an Event for this
-          P::create($patient);
-      }
-
       Public function PatientModel() {
         return new P;
       }
 
-      Public function ConsultationModel($id,array $values) {
-        P::find($id)->update($values);
+      Public function consults() {
+        return new CM;
       }
 
-      Public function deletePatient($id) {
-        P::find($id)->delete($values);
-      }
+      
   }

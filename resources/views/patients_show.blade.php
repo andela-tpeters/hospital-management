@@ -56,6 +56,10 @@
 							<td>Registration Date</td>
 							<td> {{strftime("%dth,%B %Y, Time: %H:%M",strtotime($patient->created_at))}} </td>
 						</tr>
+						<tr>
+							<td><a href="{{ route('patient.edit') }}" title="Edit Patient" class="btn btn-info">Edit</a></td>
+							<td><a href="{{ route('patient.delete') }}" title="Delete Patient" class="btn btn-danger">Delete</a></td>
+						</tr>
 					</tbody>
 				</table>
 				
