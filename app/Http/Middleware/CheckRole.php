@@ -17,7 +17,7 @@ class CheckRole
     {
 
         $nurseRoutes = [
-            'patient'=> ['all'=>'all','view'=>'view','create'=>'create','register'=>'register','edit'=>'edit']
+            'patient'=> ['all'=>'all','view'=>'view','create'=>'create','register'=>'register','edit'=>'edit','update'=>'update']
         ];
 
         $doctorsRoutes = [

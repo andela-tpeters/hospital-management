@@ -9,7 +9,7 @@
                 <div class="panel-heading">All Patients
 
                 <div class="pull-right col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                       <a href="{{ url('/patients/create') }}">Add</a>
+                       <a href="{{ route('patient.create') }}">Add</a>
                 </div>
                 </div>
 
