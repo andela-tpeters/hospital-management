@@ -10,6 +10,8 @@ class Patient extends Model
 
     Protected $primaryKey = 'patient_id';
 
+    Protected $fillable = ['name','phone'];
+
     Public function consultations() {
     	return $this->hasMany('\App\ConsultationModel','patient_id','patient_id');
     }

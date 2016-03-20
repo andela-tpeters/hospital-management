@@ -30,15 +30,15 @@ Route::group(['middleware' => ['web','auth']], function () {
 	Route::controller('/patients','Patients',
 		[
 			'getIndex'=>'patient.all',
-			'postIndex'=>'patient.register',
 			'getCreate'=>'patient.create',
-			'getShow'=>'patient.view',
+			// 'getShow'=>'patient.view',
 			'getEdit'=>'patient.edit',
 			'postUpdate'=>'patient.update',
 			'getDestroy'=>'patient.delete'
 		]);
 	Route::resource('/consultations', 'ConsultationController');
-  // Route::get('/staff','StaffTestController@getIndex');
+  Route::post('/create-patient','PatientInsertionController@createPatient',['as'=>'patient.register']);
+  Route::get('/show-patient/{patient_id}','PatientRUDController@showPatient',['as'=>'patient.veiw']);
 });
 
 

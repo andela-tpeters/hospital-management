@@ -7,7 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreatePatientRequest as CPR;
 use App\Classes\Staff;
-
+// use Faker\Factory;
 class Patients extends Controller
 {
     Public $staff;
@@ -34,28 +34,7 @@ class Patients extends Controller
          return view('patients_new')->with('report',"this is report");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function postIndex(CPR $request)
-    {
-
-        $newPatient = $this->staff->PatientModel();
-
-        $newPatient->name = $request->name;
-        $newPatient->phone = $request->phone;
-
-        if($newPatient->save()) {
-            return redirect('/patients/index');
-        } else {
-            return back()->with('report','Patient was not added to the database');
-        }
-
-        
-    }
+    
 
     /**
      * Display the specified resource.
@@ -79,6 +58,8 @@ class Patients extends Controller
      */
     public function getEdit(Request $r, $id)
     {
+        // $k = new Request;
+        // dd($k->segment(3));
         return view('patients_edit',['patient'=>$this->staff->PatientModel()->find($id)]);
     }
 
