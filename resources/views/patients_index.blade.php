@@ -23,8 +23,6 @@
                                 <th>Name</th>
                                 <th>Phone</th>
                                 <th>View</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -34,9 +32,7 @@
                                 <td>{{$one->patient_id}}</td>
                                 <td>{{$one->name}}</td>
                                 <td>{{$one->phone}}</td>
-                                <td><a href="{{ url('/show-patient').'/'.$one->patient_id }}" title="Show Patient" class="btn btn-primary">Show</a></td>
-                                <td><a href="{{ url('/patients/edit').'/'.$one->patient_id }}" title="Edit Patient" class="btn btn-info">Edit</a></td>
-                                <td><a href="{{ url('/patients/destroy').'/'.$one->patient_id }}" title="Delete Patient" class="btn btn-danger">Delete</a></td>
+                                <td><a href="{{ route('patient.view',['patient_id'=>$one->patient_id]) }}" title="Show Patient" class="btn btn-primary">Show</a></td>
                             </tr>
                             @endforeach
                         

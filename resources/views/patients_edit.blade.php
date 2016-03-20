@@ -9,7 +9,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">New Patient</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/patients/update').'/'.$patient->patient_id }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('patient.update')}}">
                         {!! csrf_field() !!}
 
                         

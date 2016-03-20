@@ -60,7 +60,7 @@ class CheckRole
                 $path = $request->route()->getName();
                 if(!array_has($doctorsRoutes,$path)) {
                     $request->session()->flash('role',"Access Denied");
-                    return redirect('/patients/index');
+                    return back();
                 } 
                 break;
             case 'nurse':

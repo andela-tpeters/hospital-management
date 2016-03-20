@@ -29,7 +29,7 @@ class PatientRUDProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind("App\Classes\PatientObject",function() {
-            return new PatientObject(Patient::find(\Config::get('patient_id')));
+            return new PatientObject(Patient::find(session('patient_id')));
         });
     }
 

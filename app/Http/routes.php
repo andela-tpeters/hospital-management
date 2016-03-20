@@ -27,20 +27,22 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web','auth']], function () {
-	Route::controller('/patients','Patients',
+	Route::controller('/patients','PatientPageController',
 		[
 			'getIndex'=>'patient.all',
-			'getCreate'=>'patient.create',
-			// 'getShow'=>'patient.view',
-			'getEdit'=>'patient.edit',
-			'postUpdate'=>'patient.update',
-			'getDestroy'=>'patient.delete'
+			'getCreate'=>'patient.create'
 		]);
 	Route::resource('/consultations', 'ConsultationController');
-  Route::post('/create-patient','PatientInsertionController@createPatient',['as'=>'patient.register']);
-  Route::get('/show-patient/{patient_id}','PatientRUDController@showPatient',['as'=>'patient.veiw']);
+  
 });
 
+Route::group(['middleware'=>['web'/*,'checkRole'*/,'auth'],'prefix'=>'patient'], function() {
+  Route::post('/create-patient',['uses'=>'PatientInsertionController@createPatient','as'=>'patient.register']);
+  Route::get('/show-patient/{patient_id}',['uses'=>'PatientRUDController@getShowPatient','as'=>'patient.view']);
+  Route::get('/edit-patient',['uses'=>'PatientRUDController2@getEdit','as'=>'patient.edit']);
+  Route::post('/update-patient',['uses'=>'PatientRUDController2@postUpdatePatient','as'=>'patient.update']);
+  Route::get('/delete-patient',['uses'=>'PatientRUDController2@getDelete','as'=>'patient.delete']);
+});
 
 
 Route::group(['middleware' => 'web'], function () {
