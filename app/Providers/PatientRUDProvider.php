@@ -3,11 +3,14 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Auth;
-use App\Classes\Staff;
+use App\Classes\PatientObject;
+use App\Patient;
+use Illuminate\Http\Request;
 
-class StaffProvider extends ServiceProvider
+
+class PatientRUDProvider extends ServiceProvider
 {
+    Public $patient;
     /**
      * Bootstrap the application services.
      *
@@ -15,7 +18,7 @@ class StaffProvider extends ServiceProvider
      */
     public function boot()
     {
-        Auth::check();
+        
     }
 
     /**
@@ -25,8 +28,9 @@ class StaffProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('\App\Classes\Staff',function(){
-            return new Staff(Auth::user());
+        $this->app->bind("App\Classes\PatientObject",function() {
+            return new PatientObject(Patient::find(\Config::get('patient_id')));
         });
     }
+
 }

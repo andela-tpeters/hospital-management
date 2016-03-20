@@ -9,7 +9,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">New Patient</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/patients/index') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/create-patient') }}">
                         {!! csrf_field() !!}
 
                         

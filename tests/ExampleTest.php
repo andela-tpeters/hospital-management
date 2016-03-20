@@ -14,6 +14,13 @@ class ExampleTest extends TestCase
     public function testBasicExample()
     {
         $this->visit('/')
-             ->see('Laravel 5');
+             ->seePageIs('');
+    }
+
+    Public function clickLogin()
+    {
+        $this->visit('/')
+              ->click('login')
+              ->seePageIs('/login');
     }
 }

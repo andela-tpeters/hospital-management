@@ -158,6 +158,7 @@ return [
         App\Providers\ConsultationModelEvents::class,
         App\Providers\PatientModelEventProvider::class,
         App\Providers\StaffProvider::class,
+        App\Providers\PatientRUDProvider::class,
 
     ],
 
