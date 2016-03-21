@@ -5,8 +5,9 @@
  */
 trait PatientTraits
 {
-    public function consultations()
+    public function myConsultations()
     {
         return $this->patient->consultations;
     }
+
 }

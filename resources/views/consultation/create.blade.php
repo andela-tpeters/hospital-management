@@ -6,7 +6,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading"><h3>New Consultation for {{$patient->name}}</h3></div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('consultations.store') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('consultation.store') }}">
                         {!! csrf_field() !!}
                         <input type="hidden" name="patient_id" value="{{$patient->patient_id}}">
                         <input type="hidden" name="doctor_id" value="{{\Auth::user()->staff_id}}">

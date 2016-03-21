@@ -21,7 +21,7 @@ class PatientRUDController extends Controller
     }
 
     Public function getShowPatient(Patient $patient) {
-      return view('patients_show',['patient'=>$patient->getProfile(),'patientConsults'=>$patient->consultations()]);
+      return view('patients_show',['patient'=>$patient->getProfile(),'patientConsults'=>$patient->myConsultations()]);
     }
 
 }

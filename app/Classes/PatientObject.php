@@ -30,4 +30,9 @@
       }
     }
 
+    public function saveConsults() {
+      return $this->patient->consultations();
+    }
+
+
   }
