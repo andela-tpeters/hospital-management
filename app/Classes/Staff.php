@@ -9,16 +9,24 @@ class Staff implements \App\Interfaces\ProfileInterface
 {
   use \App\Traits\PersonelTraits;
 
-  protected $staff;
+  public $staff;
+  static public $role;
+  static public $user;
   
   public function __construct($user)
   {
-    $this->staff = $user;
+    static::$user = $this->staff = $user;
+    static::$role = $this->staff->role;
+    // static::$user = $user;
   }
 
   Public function getProfile() {
-    return $this->staff->role;
+    return static::$role;
   }
+
+  // static public function m() {
+  //   return static::$user;
+  // }
 
   
 }
