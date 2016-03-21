@@ -9,10 +9,11 @@
   {
     
     Public $patient;
+    static public $person;
 
     function __construct($patient)
     {
-      $this->patient = $patient;
+      static::$person = $this->patient = $patient;
     }
 
     use \App\Traits\PatientTraits;

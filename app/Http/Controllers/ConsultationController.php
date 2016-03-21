@@ -9,20 +9,27 @@ use App\Http\Controllers\Controller;
 use App\ConsultationModel as CM;
 use App\Patient as PM;
 use App\Events\NewConsulationBroadCast;
+use App\Classes\ConsultationObject as Consultation;
 
 
 class ConsultationController extends Controller
 {
+    Public $consultation; // consutlation
+
+    public function __construct(Consultation $consultation) {
+        $this->consultation = $consultation;
+    }
+
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+
      */
     public function index()
     {
-        $model = new CM;
-        $all = CM::all();
-        return view('consultation.index',['all'=>$all]);
+        return view('consultation.index',['all'=>$this->consultation->getAll()]);
     }
 
     /**
@@ -30,9 +37,10 @@ class ConsultationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $r)
+    public function create()
     {
-        return view('consultation.create',['patient'=>PM::find($r->patient)]);
+        return dd($this->consultation->getPatient());
+        return view('consultation.create',['patient'=>$this->consultation->getPatient()]);
     }
 
    

@@ -39,14 +39,14 @@ class PatientPageController extends Controller
     
 
     
-    public function getDestroy(Request $r, $id)
-    {
-        $patient = $this->staff->PatientModel()->find($id);
+    // public function getDestroy(Request $r, $id)
+    // {
+    //     $patient = $this->staff->PatientModel()->find($id);
 
-        if($patient->delete()) {
-            return back();
-        } else {
-            return back()->with('report','Patient Delete Failed');
-        }
-    }
+    //     if($patient->delete()) {
+    //         return back();
+    //     } else {
+    //         return back()->with('report','Patient Delete Failed');
+    //     }
+    // }
 }

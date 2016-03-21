@@ -31,7 +31,7 @@
                             @foreach($all as $one)
                             <tr>
                                 <td>{{$one->patient_id}}</td>
-                                <td>{{\App\Patient::find($one->patient_id)->name}}</td>
+                                <td>{{$one->name}}</td>
                                 <td><a href="{{ url('/consultations').'/'.$one->id }}" title="Show Patient" class="btn btn-primary">Show</a></td>
                                 <td><a href="{{ url('/consultations').'/'.$one->id.'/edit' }}" title="Edit Patient" class="btn btn-info">Edit</a></td>
                                 <td><a href="{{ url('/consultations/destroy').'/'.$one->id }}" title="Delete Patient" class="btn btn-danger">Delete</a></td>
