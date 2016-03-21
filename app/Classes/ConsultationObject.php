@@ -19,12 +19,8 @@ class ConsultationObject
   {
     $this->staff = $staff;
     $this->patient = $patient;
-    // $this->all = $patient->consultations();
   }
 
-  Public function getAll() {
-    return \DB::table('consultation')->join('patients','patients.patient_id','=','consultation.patient_id')->get();
-  }
 
   Public function getPatient() {
     return $this->patient;

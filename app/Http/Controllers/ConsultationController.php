@@ -32,33 +32,7 @@ class ConsultationController extends Controller
         return view('consultation.index',['all'=>$this->consultation->getAll()]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return dd($this->consultation->getPatient());
-        return view('consultation.create',['patient'=>$this->consultation->getPatient()]);
-    }
-
-   
-
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(CSV $request)
-    {
-        PM::find($request->patient_id)->consultations()->save(CM::create($request->all()));
-        
-        return redirect('/patients/show/'.$request->patient_id);
-    }
-
+    
     /**
      * Display the specified resource.
      *

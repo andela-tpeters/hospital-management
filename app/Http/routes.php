@@ -32,8 +32,6 @@ Route::group(['middleware' => ['web','auth']], function () {
 			'getIndex'=>'patient.all',
 			'getCreate'=>'patient.create'
 		]);
-	Route::resource('/consultations', 'ConsultationController');
-  
 });
 
 Route::group(['middleware'=>['web','checkRole','auth'],'prefix'=>'patient'], function() {
@@ -45,7 +43,8 @@ Route::group(['middleware'=>['web','checkRole','auth'],'prefix'=>'patient'], fun
 });
 
 Route::group(['middleware'=>['web','checkRole','auth'],'prefix'=>'consultation'], function(){
-  
+  Route::get('/create', ['uses'=>'PatientRUDController2@getCreateConsultation','as'=>'consultation.create']);
+  Route::post('/store', ['uses'=>'PatientRUDController2@postCreateConsultation','as'=>'consultation.store']);
 });
 
 

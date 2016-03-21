@@ -17,5 +17,8 @@
         return new CM;
       }
 
-      
+      Public function getAllConsultations() 
+      {
+        return \DB::table('consultation')->join('patients','patients.patient_id','=','consultation.patient_id')->get();
+      }
   }

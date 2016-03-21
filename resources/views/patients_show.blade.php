@@ -75,18 +75,7 @@
 							</h4>
 						</div>
 						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 pull-right">
-							<form action="{{ route('consultations.create') }}" method="GET">
-								<input type="hidden" name="_method" value="HEAD">
-								<input type="hidden" name="patient" value="{{$patient->patient_id}}">
-								<div class="form-group">
-									<div class="">
-										<button type="submit" class="btn btn-primary">
-										<i class="fa fa-btn fa-pencil"></i></button>
-									</div>
-								</div>
-							</form>
-							
-							{{-- <a href="{{url('/consultations/create').'/'.$patient->patient_id}}" class="btn btn-info"  title="">Add</a> --}}
+							<a href="{{route('consultation.create')}}" class="btn btn-info"  title="">Add</a>
 						</div>
 					</div>
 					
