@@ -23,7 +23,7 @@ class CheckRole
         $doctorsRoutes = [
             // 'patient'=>['all'=>'all','view'=>'view'],
             'patient'=> $nurseRoutes['patient'],
-            'consultation'=>['index'=>'all','show'=>'view','create'=>'create','store'=>'register','edit'=>'edit','destroy'=>'destroy','update'=>'update']
+            'consultation'=>['index'=>'all','view'=>'view','create'=>'create','store'=>'register','edit'=>'edit','destroy'=>'destroy','update'=>'update']
         ];
 
         $pharmacistRoutes = [
