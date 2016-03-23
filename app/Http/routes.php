@@ -32,6 +32,8 @@ Route::group(['middleware' => ['web','auth']], function () {
 			'getIndex'=>'patient.all',
 			'getCreate'=>'patient.create'
 		]);
+
+  Route::get('/consultations', ['uses'=>'ConsultationController@index','as'=>'consultation.index']);
 });
 
 Route::group(['middleware'=>['web','checkRole','auth'],'prefix'=>'patient'], function() {
@@ -48,7 +50,7 @@ Route::group(['middleware'=>['web','checkRole','auth'],'prefix'=>'consultation']
   Route::get('/view/{patient_id}/{consultation_id}', ['uses'=>'ConsultationObjectController@getViewConsultation','as'=>'consultation.view']);
   Route::get('/edit',['uses'=>'ConsultationObjectController2@getEditConsultation','as'=>'consultation.edit']);
   Route::put('/update',['uses'=>'ConsultationObjectController2@postEditConsultation','as'=>'consultation.update']);
-  Route::get('/delete',['uses'=>'ConsultationObjectController2@getDeleteConsultation','as'=>'consultation.destroy']);
+  Route::get('/delete/{patient_id?}/{consultation_id?}',['uses'=>'ConsultationObjectController2@getDeleteConsultation','as'=>'consultation.destroy']);
 });
 
 
