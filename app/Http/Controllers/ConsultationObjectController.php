@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Classes\ConsultationObject as Consultation;
+use App\Classes\Staff;
 
 class ConsultationObjectController extends Controller
 {
@@ -17,8 +18,8 @@ class ConsultationObjectController extends Controller
 
     }
 
-    Public function getViewConsultation(Consultation $consultation) {
-      return view('consultation.show',['patientConsults'=>$consultation->thisConsult()]);
+    Public function getViewConsultation(Consultation $consultation,Staff $staff) {
+      return view('consultation.show',['patientConsults'=>$consultation->thisConsult(),'staff'=>$staff->getProfile()]);
     }
 
     

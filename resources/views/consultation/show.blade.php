@@ -65,7 +65,7 @@
 		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 			<div class="panel panel-default">
 				<!-- Default panel contents -->
-				<div class="panel-heading"><h4> Consultation by Doctor: {{'jkjlskjl'}} </h4>	</div>
+				<div class="panel-heading"><h4> Consultation by Doctor: {{$staff->title.' '.$staff->name}} </h4>	</div>
 				<div class="panel-body">
 					
 					<div class="row">
@@ -111,9 +111,12 @@
 							</td>
 						</tr>
 						<tr>
-							<td>first</td>
-							<td>Second</td>
-							<td>Third</td>
+							<td>
+								<a href="{{ route('consultation.edit') }}">Edit</a>
+							</td>
+							<td>
+								<a href="{{ route('consultation.destroy') }}">Delete</a>
+							</td>
 						</tr>
 					</tbody>
 				</table>
