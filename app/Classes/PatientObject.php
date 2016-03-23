@@ -34,17 +34,5 @@
       return $this->patient->consultations();
     }
 
-    Public function getConsultation($id) {
-      return $this->patient->consultations()->find($id);
-    }
-
-    Public function updateConsultation($id, array $data) {
-    if($this->patient->consultations()->find($id)->update($data)) {
-        return true;
-      } else {
-        return false;
-      }
-    }
-
 
   }

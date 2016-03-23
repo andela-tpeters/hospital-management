@@ -11,21 +11,21 @@ use App\Classes\Staff;
 */
 class ConsultationObject
 {
-  public $staff;
-  public $patient;
-  public $all;
+  public $consultation;
   
-  function __construct(Staff $staff, Patient $patient)
+  function __construct($consultation)
   {
-    $this->staff = $staff;
-    $this->patient = $patient;
+    $this->consultation = $consultation;
   }
 
 
   Public function getPatient() {
-    return $this->patient;
+    // return $this->patient;
   }
 
+  Public function thisConsult() {
+    return $this->consultation;
+  }
 
   
 }

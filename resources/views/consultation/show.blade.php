@@ -65,7 +65,7 @@
 		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 			<div class="panel panel-default">
 				<!-- Default panel contents -->
-				<div class="panel-heading"><h4> Consultation by Doctor: {{'Tijesunimi Peters'}} </h4>	</div>
+				<div class="panel-heading"><h4> Consultation by Doctor: {{'jkjlskjl'}} </h4>	</div>
 				<div class="panel-body">
 					
 					<div class="row">
@@ -111,9 +111,9 @@
 							</td>
 						</tr>
 						<tr>
-							<div class="pull-right col-xs-6 col-sm-6 col-md-6 col-lg-6">
-								{{-- <button type="button" class="btn btn-large btn-block btn-default">button</button> --}}
-							</div>
+							<td>first</td>
+							<td>Second</td>
+							<td>Third</td>
 						</tr>
 					</tbody>
 				</table>

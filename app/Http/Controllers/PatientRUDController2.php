@@ -46,29 +46,4 @@ class PatientRUDController2 extends Controller
       return view('consultation.create',['patient'=>$patient->getProfile()]);
     }
 
-    Public function getViewConsultation(Patient $patient, $id) {
-      return view('consultation.show',['patientConsults'=>$patient->getConsultation($id)]);
-    }
-
-    Public function getEditConsultation(Patient $patient, Staff $staff, $id) {
-        return view('consultation.edit',['patient'=>$patient->getProfile(),'consult'=>$patient->getConsultation($id),'staff'=>$staff->getProfile()]);
-    }
-
-    Public function postEditConsultation(Patient $patient,$id,Request $r) {
-      if($patient->updateConsultation($id,$r->all())) {
-        return redirect()->route('patient.view',['patient_id'=>$patient->getProfile()->patient_id]);
-      } else {
-        Request::flash('error','Consultation was not Updated');
-        return redirect()->route('patient.view',['patient_id'=>$patient->getProfile()->patient_id]);
-      }
-    }
-
-    Public function getDeleteConsultation(Patient $patient, $id) {
-      if($patient->getConsultation($id)->delete()) {
-        return redirect()->route('patient.view',[$patient->getProfile()->patient_id]);
-      } else {
-        Request::flash('error', "Consultation not deleted");
-        return redirect()->route('patient.view',[$patient->getProfile()->patient_id]);
-      }
-    }
 }

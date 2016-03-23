@@ -101,7 +101,7 @@
 							<td style="text-align: justify;"> {{strftime('%B, %d %Y',strtotime($consult->created_at))}} </td>
 							<td style="text-align: justify;">{{$consult->diagnosis}}</td>
 							<td style="text-align: center">
-								<a href="{{ route('consultation.view',['consultation_id'=>$consult->id]) }}" title="">View</a>
+								<a href="{{ route('consultation.view',['patient_id'=>$consult->patient_id,'consultation_id'=>$consult->id]) }}" title="">View</a>
 							</td>
 							
 							<td style="text-align: center">
