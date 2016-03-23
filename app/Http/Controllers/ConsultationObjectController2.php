@@ -17,20 +17,22 @@ class ConsultationObjectController2 extends Controller
     }
 
     Public function postEditConsultation(Patient $patient,Consultation $consultation,Request $r) {
-      if($patient->updateConsultation($id,$r->all())) {
-        return redirect()->route('patient.view',['patient_id'=>$patient->getProfile()->patient_id]);
+      $c = $consultation->thisConsult();
+      if($consultation->thisConsult()->update($r->all())) {
+        return redirect()->route('consultation.view',[$c->patient->patient_id,$c->id]);
       } else {
         Request::flash('error','Consultation was not Updated');
-        return redirect()->route('patient.view',['patient_id'=>$patient->getProfile()->patient_id]);
+        return redirect()->route('consultation.view',[$c->patient->patient_id, $c->id]);
       }
     }
 
-    Public function getDeleteConsultation(Patient $patient, $id) {
-      if($patient->getConsultation($id)->delete()) {
-        return redirect()->route('patient.view',[$patient->getProfile()->patient_id]);
+    Public function getDeleteConsultation(Consultation $consultation) {
+      $c = $consultation->thisConsult();
+      if($consultation->thisConsult()->delete()) {
+        return redirect()->route('patient.view',[$c->patient->patient_id]);
       } else {
         Request::flash('error', "Consultation not deleted");
-        return redirect()->route('patient.view',[$patient->getProfile()->patient_id]);
+        return redirect()->route('patient.view',[$c->patient->patient_id]);
       }
     }
 }
