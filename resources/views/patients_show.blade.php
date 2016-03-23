@@ -108,7 +108,7 @@
 								<a href="{{ route('consultation.edit',[$consult->id]) }}" title="">Edit</a>
 							</td>
 							<td style="text-align: center">
-								<a href="{{ route('consultation.destroy',[$consult->id]) }}" title=""><i class="fa fa-btn fa-trash"></i></a>
+								<a href="{{ route('consultation.destroy',[$consult->patient_id,$consult->id]) }}" title=""><i class="fa fa-btn fa-trash"></i></a>
 							</td>
 						</tr>
 						@endforeach

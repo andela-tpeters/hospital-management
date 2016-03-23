@@ -26,7 +26,15 @@ class ConsultationObjectController2 extends Controller
       }
     }
 
-    Public function getDeleteConsultation(Consultation $consultation) {
+
+
+    Public function getDeleteConsultation(Consultation $consultation, $patient_id = false, $consultation_id = false) {
+      if($patient_id && $consultation_id) {
+        if(\App\Patient::find($patient_id)->consultations()->find($consultation_id)->delete()) {
+          return redirect()->route('patient.view',[$patient_id]);
+        }
+      }
+
       $c = $consultation->thisConsult();
       if($consultation->thisConsult()->delete()) {
         return redirect()->route('patient.view',[$c->patient->patient_id]);
@@ -35,4 +43,5 @@ class ConsultationObjectController2 extends Controller
         return redirect()->route('patient.view',[$c->patient->patient_id]);
       }
     }
+
 }

@@ -34,5 +34,7 @@
       return $this->patient->consultations();
     }
 
+    
+
 
   }

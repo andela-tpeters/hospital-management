@@ -22,7 +22,6 @@
                                 <th>Hospital Id</th>
                                 <th>Name</th>
                                 <th>View</th>
-                                <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
@@ -32,9 +31,8 @@
                             <tr>
                                 <td>{{$one->patient_id}}</td>
                                 <td>{{$one->name}}</td>
-                                <td><a href="{{ url('/consultations').'/'.$one->id }}" title="Show Patient" class="btn btn-primary">Show</a></td>
-                                <td><a href="{{ url('/consultations').'/'.$one->id.'/edit' }}" title="Edit Patient" class="btn btn-info">Edit</a></td>
-                                <td><a href="{{ url('/consultations/destroy').'/'.$one->id }}" title="Delete Patient" class="btn btn-danger">Delete</a></td>
+                                <td><a href="{{ route('consultation.view',[$one->patient_id,$one->id]) }}" title="Show Consultation" class="btn btn-primary">View</a></td>
+                                <td><a href="{{ route('consultation.destroy',[$one->patient_id,$one->id]) }}" title="Delete Consultation" class="btn btn-danger">Delete</a></td>
                             </tr>
                             @endforeach
                         
