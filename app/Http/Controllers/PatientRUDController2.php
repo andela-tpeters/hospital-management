@@ -45,4 +45,5 @@ class PatientRUDController2 extends Controller
     Public function getCreateConsultation(Patient $patient) {
       return view('consultation.create',['patient'=>$patient->getProfile()]);
     }
+
 }

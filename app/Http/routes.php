@@ -45,6 +45,10 @@ Route::group(['middleware'=>['web','checkRole','auth'],'prefix'=>'patient'], fun
 Route::group(['middleware'=>['web','checkRole','auth'],'prefix'=>'consultation'], function(){
   Route::get('/create', ['uses'=>'PatientRUDController2@getCreateConsultation','as'=>'consultation.create']);
   Route::post('/store', ['uses'=>'PatientRUDController2@postCreateConsultation','as'=>'consultation.store']);
+  Route::get('/view/{patient_id}/{consultation_id}', ['uses'=>'ConsultationObjectController@getViewConsultation','as'=>'consultation.view']);
+  Route::get('/edit/{consultation_id}',['uses'=>'PatientRUDController2@getEditConsultation','as'=>'consultation.edit']);
+  Route::put('/update/{consultation_id}',['uses'=>'PatientRUDController2@postEditConsultation','as'=>'consultation.update']);
+  Route::get('/delete/{consultation_id}',['uses'=>'PatientRUDController2@getDeleteConsultation','as'=>'consultation.destroy']);
 });
 
 

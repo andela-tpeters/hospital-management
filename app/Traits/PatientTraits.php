@@ -7,7 +7,7 @@ trait PatientTraits
 {
     public function myConsultations()
     {
-        return $this->patient->consultations;
+        return $this->patient->consultations()->orderBy('created_at','desc')->get();
     }
 
 }

@@ -87,37 +87,28 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th>Date</th>
-							<th>Diagnosis</th>
-							<th>View</th>
-							<th>Edit</th>
-							<th>Delete</th>
+							<th style="text-align: center">Date</th>
+							<th style="text-align: center">Diagnosis</th>
+							<th style="text-align: center">View</th>
+							<th style="text-align: center">Edit</th>
+							<th style="text-align: center">Delete</th>
 						</tr>
 					</thead>
 					<tbody>
 						@foreach($patientConsults as $consult)
 						<tr>
 							
-							<td colspan="" rowspan="" headers=""> {{strftime('%B, %d %Y',strtotime($consult->created_at))}} </td>
-							<td colspan="" rowspan="" headers="">{{$consult->diagnosis}}</td>
-							<td colspan="" rowspan="" headers="">
-								<a href="{{url('/consultations').'/'.$consult->id}}" title="">View</a>
+							<td style="text-align: justify;"> {{strftime('%B, %d %Y',strtotime($consult->created_at))}} </td>
+							<td style="text-align: justify;">{{$consult->diagnosis}}</td>
+							<td style="text-align: center">
+								<a href="{{ route('consultation.view',['patient_id'=>$consult->patient_id,'consultation_id'=>$consult->id]) }}" title="">View</a>
 							</td>
 							
-							<td colspan="" rowspan="" headers="">
-								<a href="{{url('/consultations').'/'.$consult->id.'/edit'}}" title="">Edit</a>
+							<td style="text-align: center">
+								<a href="{{ route('consultation.edit',[$consult->id]) }}" title="">Edit</a>
 							</td>
-							<td colspan="" rowspan="" headers="">
-								<form action="{{ url('/consultations').'/'.$consult->id }}" method="post">
-									{!! csrf_field() !!}
-									<input type="hidden" name="_method" value="DELETE">
-									<div class="form-group">
-										<div class="">
-											<button type="submit" class="btn btn-danger">
-											<i class="fa fa-btn fa-trash"></i></button>
-										</div>
-									</div>
-								</form>
+							<td style="text-align: center">
+								<a href="{{ route('consultation.destroy',[$consult->id]) }}" title=""><i class="fa fa-btn fa-trash"></i></a>
 							</td>
 						</tr>
 						@endforeach

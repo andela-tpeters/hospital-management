@@ -1,6 +1,7 @@
 <?php
 namespace App\Classes;
 // use App\Interfaces;
+use App\Classes\PatientObject as Patient;
 
 /**
 * Builds the Staff using the app
@@ -12,21 +13,17 @@ class Staff implements \App\Interfaces\ProfileInterface
   public $staff;
   static public $role;
   static public $user;
+
   
   public function __construct($user)
   {
     static::$user = $this->staff = $user;
     static::$role = $this->staff->role;
-    // static::$user = $user;
   }
 
   Public function getProfile() {
-    return static::$role;
+    return $this->staff;
   }
 
-  // static public function m() {
-  //   return static::$user;
-  // }
 
-  
 }
