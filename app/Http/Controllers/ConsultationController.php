@@ -22,7 +22,9 @@ class ConsultationController extends Controller
      */
     public function index()
     {
-        return view('consultation.index',['all'=>\DB::table('consultation')->join('patients','patients.patient_id','=','consultation.patient_id')->get()]);
+        $all = CM::all();
+        // return dd($all);
+        return view('consultation.index',['all'=>$all]);
     }
     
 }
