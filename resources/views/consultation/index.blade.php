@@ -30,7 +30,7 @@
                             @foreach($all as $one)
                             <tr>
                                 <td>{{$one->patient_id}}</td>
-                                <td>{{$one->name}}</td>
+                                <td>{{$one->patient->name}}</td>
                                 <td><a href="{{ route('consultation.view',[$one->patient_id,$one->id]) }}" title="Show Consultation" class="btn btn-primary">View</a></td>
                                 <td><a href="{{ route('consultation.destroy',[$one->patient_id,$one->id]) }}" title="Delete Consultation" class="btn btn-danger">Delete</a></td>
                             </tr>
