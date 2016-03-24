@@ -57,6 +57,10 @@
 							<td>Registration Date</td>
 							<td> {{strftime("%dth,%B %Y, Time: %H:%M",strtotime($patient->created_at))}} </td>
 						</tr>
+						<tr>
+							<td><a href="{{ route('patient.edit') }}" title="Edit Patient" class="btn btn-info">Edit</a></td>
+							<td><a href="{{ route('patient.delete') }}" title="Delete Patient" class="btn btn-danger">Delete</a></td>
+						</tr>
 					</tbody>
 				</table>
 				
@@ -112,10 +116,10 @@
 						</tr>
 						<tr>
 							<td>
-								<a href="{{ route('consultation.edit') }}">Edit</a>
+								<a class="btn btn-primary" href="{{ route('consultation.edit') }}">Edit</a>
 							</td>
 							<td>
-								<a href="{{ route('consultation.destroy') }}">Delete</a>
+								<a class="btn btn-danger" href="{{ route('consultation.destroy') }}">Delete</a>
 							</td>
 						</tr>
 					</tbody>

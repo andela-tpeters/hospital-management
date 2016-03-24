@@ -87,8 +87,8 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th style="text-align: center">Date</th>
-							<th style="text-align: center">Diagnosis</th>
+							<th>Date</th>
+							<th>Diagnosis</th>
 							<th style="text-align: center">View</th>
 							<th style="text-align: center">Edit</th>
 							<th style="text-align: center">Delete</th>
