@@ -11,4 +11,8 @@ class AccountModel extends Model
     protected $primaryKey = 'patient_id';
 
     Protected $fillable = ['amount','purpose'];
+
+    Public function patient() {
+      return $this->belongsTo('\App\Patient','patient_id','patient_id');
+    }
 }
