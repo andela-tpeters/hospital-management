@@ -15,4 +15,8 @@ class Patient extends Model
     Public function consultations() {
     	return $this->hasMany('\App\ConsultationModel','patient_id','patient_id');
     }
+
+    Public function accounts() {
+      return $this->hasMany('\App\AccountModel','patient_id','patient_id');
+    }
 }

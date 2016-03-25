@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
 	<div class="row">
-		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 			<div class="panel panel-default">
 				<!-- Default panel contents -->
 				<div class="panel-heading">Patients Info</div>
@@ -65,16 +65,14 @@
 				
 			</div>
 		</div>
-		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-			<div class="panel panel-default">
+		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+			<div class="panel panel-info">
 				<div class="panel-heading">
 					<div class="row">
-						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-							<h4>
-							Consultations History
-							</h4>
+						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+							<h4>Consultations History</h4>
 						</div>
-						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 pull-right">
+						<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 pull-right">
 							<a href="{{route('consultation.create')}}" class="btn btn-info"  title="">Add</a>
 						</div>
 					</div>
@@ -112,11 +110,47 @@
 							</td>
 						</tr>
 						@endforeach
+						<tr>
+							<td colspan="5">
+								<div class="pull-right col-xs-2 col-sm-2 col-md-2 col-lg-2">
+									<a href="#" class="btn" style="text-align: center">See All</a>
+								</div>
+							</td>
+						</tr>
 					</tbody>
 				</table>
 				@else
 				<h3 style="text-align: center"> OOPS!!! No Record Found </h3>
 				@endif
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+			<div class="panel panel-default">
+				<!-- Default panel contents -->
+				<div class="panel-heading"><h4>Accounts</h4></div>
+				<div class="panel-body">
+					<p>Text goes here...</p>
+				</div>
+			
+				<!-- Table -->
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Heading 1</th>
+						</tr>
+						<tr>
+							<th>Heading 2</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Content 1</td>
+						</tr>
+						<tr>
+							<td>Content 2</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>
