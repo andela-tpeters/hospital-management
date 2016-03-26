@@ -68,16 +68,13 @@
 		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 			<div class="panel panel-info">
 				<div class="panel-heading">
-					<div class="row">
-						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 							<h4>Consultations History</h4>
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 pull-right">
-							<a href="{{route('consultation.create')}}" class="btn btn-info"  title="">Add</a>
-						</div>
+				</div>
+
+				<div class="panel-body">
+					<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 pull-right">
+							<a href="{{route('consultation.create')}}" class="btn btn-info pull-right"  title="">Add</a>
 					</div>
-					
-					
 				</div>
 				
 				<!-- Table -->
@@ -129,8 +126,12 @@
 				<!-- Default panel contents -->
 				<div class="panel-heading"><h4>Accounts</h4></div>
 				<div class="panel-body">
-					<!-- <p>Text goes here...</p>
-				</div> -->
+					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pull-right">
+						<a href="#" class="btn btn-danger pull-right">
+							Add Account
+						</a>
+					</div>
+				</div>
 			
 				<!-- Table -->
 				@if(count($accounts) > 0)
@@ -162,7 +163,6 @@
 			@else
 				<h3 style="text-align: center"> OOPS!!! No Account Record Found </h3>
 			@endif
-			</div>
 			</div>
 		</div>
 	</div>
