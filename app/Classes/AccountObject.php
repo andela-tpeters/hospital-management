@@ -19,7 +19,7 @@ use Faker\Factory;
       }
 
       Public function getAccounts() {
-        return $this->patient->accounts;
+        return $this->patient->accounts()->orderBy('created_at','desc')->get();
       }
 
       Public function saveAccount(array $data) {

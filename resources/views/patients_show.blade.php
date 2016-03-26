@@ -125,32 +125,44 @@
 			</div>
 		</div>
 		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-			<div class="panel panel-default">
+			<div class="panel panel-danger">
 				<!-- Default panel contents -->
 				<div class="panel-heading"><h4>Accounts</h4></div>
 				<div class="panel-body">
-					<p>Text goes here...</p>
-				</div>
+					<!-- <p>Text goes here...</p>
+				</div> -->
 			
 				<!-- Table -->
+				@if(count($accounts) > 0)
 				<table class="table">
 					<thead>
 						<tr>
-							<th>Heading 1</th>
-						</tr>
-						<tr>
-							<th>Heading 2</th>
+							<th>Date</th>
+							<th>Purpose</th>
+							<th>Amount</th>
 						</tr>
 					</thead>
 					<tbody>
+					@foreach($accounts as $account)
 						<tr>
-							<td>Content 1</td>
+							<td>{{$account->created_at}}</td>
+							<td>{{$account->purpose}}</td>
+							<td>{{$account->amount}}</td>
 						</tr>
-						<tr>
-							<td>Content 2</td>
-						</tr>
+					@endforeach
+					<tr>
+						<td colspan="3">
+							<div class="pull-right col-xs-2 col-sm-2 col-md-2 col-lg-2">
+									<a href="#" class="btn" style="text-align: center">See All</a>
+							</div>
+						</td>
+					</tr>
 					</tbody>
 				</table>
+			@else
+				<h3 style="text-align: center"> OOPS!!! No Account Record Found </h3>
+			@endif
+			</div>
 			</div>
 		</div>
 	</div>
