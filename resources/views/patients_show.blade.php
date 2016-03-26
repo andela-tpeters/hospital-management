@@ -127,7 +127,7 @@
 				<div class="panel-heading"><h4>Accounts</h4></div>
 				<div class="panel-body">
 					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pull-right">
-						<a href="#" class="btn btn-danger pull-right">
+						<a href="{{ route('account.create') }}" class="btn btn-info pull-right">
 							Add Account
 						</a>
 					</div>

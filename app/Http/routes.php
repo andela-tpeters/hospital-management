@@ -53,6 +53,11 @@ Route::group(['middleware'=>['web','checkRole','auth'],'prefix'=>'consultation']
   Route::get('/delete/{patient_id?}/{consultation_id?}',['uses'=>'ConsultationObjectController2@getDeleteConsultation','as'=>'consultation.destroy']);
 });
 
+Route::group(['middleware'=>['web','auth'],'prefix'=>'patient/account'], function() {
+  Route::get('/create',['uses'=>'AccountGeneral@getCreate','as'=>'account.create']);
+  Route::post('/save',['uses'=>'AccountGeneral@postSave','as'=>'account.save']);
+});
+
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();

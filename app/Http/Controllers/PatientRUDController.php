@@ -21,10 +21,6 @@ class PatientRUDController extends Controller
     }
 
     Public function getShowPatient(Patient $patient,Account $account) {
-      $faker = \Faker\Factory::create();
-      $data = ['amount'=>$faker->numberBetween($min = 1000, $max = 9000),'purpose'=>$faker->word];
-
-      $account->saveAccount($data);
       return view('patients_show',[
               'patient'=>$patient->getProfile(),
               'patientConsults'=>$patient->myConsultations()->take(5),
