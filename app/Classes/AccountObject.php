@@ -1,7 +1,7 @@
 <?php namespace App\Classes;
 use App\AccountModel as Account;
 use App\Classes\PatientObject as Patient;
-
+use Faker\Factory;
   /**
    * summary
    */
@@ -12,17 +12,17 @@ use App\Classes\PatientObject as Patient;
       /**
        * summary
        */
-      public function __construct(Account $account, Patient $patient)
+      public function __construct($account,$patient)
       {
           $this->patientAccount = $account;
           $this->patient = $patient;
       }
 
       Public function getAccounts() {
-        return $this->patientAccount;
+        return $this->patient->accounts;
       }
 
       Public function saveAccount(array $data) {
-        return $this->patient->getProfile()->save(App\AccountModel::create($data));
+        return $this->patient->accounts()->save(Account::create($data));
       }
   }
