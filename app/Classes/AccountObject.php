@@ -8,13 +8,14 @@ use App\Classes\PatientObject as Patient;
   class AccountObject
   {
       Public $patientAccount;
-      // Static $patient;
+      Public $patient;
       /**
        * summary
        */
-      public function __construct(Account $patient)
+      public function __construct(Account $account, Patient $patient)
       {
-          $this->patientAccount = $patient;
+          $this->patientAccount = $account;
+          $this->patient = $patient;
       }
 
       Public function getAccounts() {
@@ -22,6 +23,6 @@ use App\Classes\PatientObject as Patient;
       }
 
       Public function saveAccount(array $data) {
-        return $this->patientAccount
+        return $this->patient->getProfile()->save(App\AccountModel::create($data));
       }
   }
