@@ -1,27 +1,28 @@
 <?php namespace App\Classes;
 use App\AccountModel as Account;
 use App\Classes\PatientObject as Patient;
-
+use Faker\Factory;
   /**
    * summary
    */
   class AccountObject
   {
       Public $patientAccount;
-      // Static $patient;
+      Public $patient;
       /**
        * summary
        */
-      public function __construct(Account $patient)
+      public function __construct($account,$patient)
       {
-          $this->patientAccount = $patient;
+          $this->patientAccount = $account;
+          $this->patient = $patient;
       }
 
       Public function getAccounts() {
-        return $this->patientAccount;
+        return $this->patient->accounts;
       }
 
       Public function saveAccount(array $data) {
-        return $this->patientAccount
+        return $this->patient->accounts()->save(Account::create($data));
       }
   }

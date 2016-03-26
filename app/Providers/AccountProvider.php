@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Classes\AccountObject as Account;
 use App\AccountModel;
+use App\Classes\PatientObject as Patient;
 
 class AccountProvider extends ServiceProvider
 {
@@ -26,7 +27,7 @@ class AccountProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind('\App\Classes\AccountObject',function() {
-            return new Account(AccountModel::find(session('patient_id')));
+            return new Account(AccountModel::find(session('patient_id')),Patient::$person);
         });
     }
 }

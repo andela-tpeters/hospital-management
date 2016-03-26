@@ -160,6 +160,9 @@ return [
         App\Providers\StaffProvider::class,
         App\Providers\PatientRUDProvider::class,
         App\Providers\ConsultationObjectProvider::class,
+        App\Providers\AccountEventProvider::class,
+        App\Providers\AccountProvider::class,
+
 
     ],
 
