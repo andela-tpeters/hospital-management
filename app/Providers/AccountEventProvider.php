@@ -17,7 +17,7 @@ class AccountEventProvider extends ServiceProvider
     public function boot()
     {
         AccountMOdel::creating(function($account) {
-            $account->staff_id = Staff::$staff_id;
+            $account->staff_id = \Auth::user()->staff_id;
             $account->patient_id = Patient::$person->patient_id;
         });
 
